@@ -1,0 +1,39 @@
+{
+    "name": "phant/otp",
+    "description": "Manage OTP easily",
+    "license": "MIT",
+    "keywords": ["otp manager", "otp component", "simple otp"],
+    "authors": [
+        {
+            "name": "Lenny ROUANET",
+            "email": "lennyrouanet@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "phant/data-structure": "4.*"
+    },
+    "require-dev": {
+        "phant/cache": "2.*",
+        "friendsofphp/php-cs-fixer": "3.*",
+        "phpstan/phpstan": "1.*",
+        "phpunit/phpunit": "9.*"
+    },
+    "scripts": {
+        "lint": "vendor/bin/php-cs-fixer fix ./ --rules=@PSR12",
+        "analyse": "vendor/bin/phpstan analyse component --memory-limit=4G",
+        "test": "vendor/bin/phpunit test --testdox",
+        "coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit test --coverage-html .coverage/html"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phant\\Otp\\": "component/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fixture\\": "fixture/",
+            "Test\\": "test/"
+        }
+    }
+}

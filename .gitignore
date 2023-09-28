@@ -1,0 +1,15 @@
+# App
+composer.lock
+vendor/*
+
+# Test
+.phpunit*
+test/storage/*
+!test/storage/.gitkeep
+.coverage/*
+.storage/*
+
+# Dev
+.DS_Store
+.nova/*
+.php-cs-fixer.cache
