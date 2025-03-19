@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.2",
-        "phant/data-structure": "4.*"
+        "phant/data-structure": "5.*"
     },
     "require-dev": {
         "phant/cache": "2.*",
