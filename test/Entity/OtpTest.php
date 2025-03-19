@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Test\Entity\RequestAccess;
 
 use Phant\Otp\Entity\Otp;
-
 use Phant\Error\NotCompliant;
 
 final class OtpTest extends \PHPUnit\Framework\TestCase
