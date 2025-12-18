@@ -9,23 +9,19 @@ use Phant\Error\NotAuthorized;
 use Phant\Error\NotCompliant;
 use Phant\Otp\Entity\Otp;
 use Phant\Otp\Entity\Request as EntityRequest;
-use Phant\Otp\Entity\Request\Id;
 use Phant\Otp\Entity\Request\State;
 use Phant\Otp\Entity\Request\Token;
 use Phant\Otp\Port\Adapter\Sender as AdapterSender;
 use Phant\Otp\Port\Repository\Request as RepositoryRequest;
-use Phant\Otp\Service\AccessToken as ServiceAccessToken;
-use Phant\Otp\Service\RequestAccess as ServiceRequestAccess;
-use Phant\Otp\Service\RequestAccessFromOtp as EntityRequestAccessFromOtp;
 
-final class Request
+final readonly class Request
 {
     public const LIFETIME = 900; // 15 min
 
     public function __construct(
-        protected readonly RepositoryRequest $repositoryRequest,
-        protected readonly AdapterSender $adapterSender,
-        protected readonly SslKey $sslKey
+        protected RepositoryRequest $repositoryRequest,
+        protected AdapterSender $adapterSender,
+        protected SslKey $sslKey
     ) {
     }
 
@@ -72,7 +68,7 @@ final class Request
 
         if (! $request->checkOtp($otp)) {
             if (! $request->getNumberOfRemainingAttempts()) {
-                $request->setState(State::Refused);
+                $request = $request->setState(State::Refused);
             }
 
             $this->repositoryRequest->set(
@@ -82,7 +78,7 @@ final class Request
             throw new NotCompliant('OTP not compliant');
         }
 
-        $request->setState(State::Verified);
+        $request = $request->setState(State::Verified);
 
         $this->repositoryRequest->set(
             $request

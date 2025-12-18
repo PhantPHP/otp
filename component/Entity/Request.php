@@ -25,7 +25,7 @@ final class Request
         public readonly Lifetime $lifetime,
         public readonly mixed $payload,
         private readonly int $expiration,
-        private State $state,
+        private readonly State $state,
         private int $numberOfRemainingAttempts
     ) {
     }
@@ -63,9 +63,15 @@ final class Request
             throw new NotAuthorized('State can be set to set to : ' . $state->value);
         }
 
-        $this->state = $state;
-
-        return $this;
+        return new self(
+            $this->id,
+            $this->otp,
+            $this->lifetime,
+            $this->payload,
+            $this->expiration,
+            $state,
+            $this->numberOfRemainingAttempts
+        );
     }
 
     public function getNumberOfRemainingAttempts(
