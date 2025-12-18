@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Fixture\Entity;
 
-use Phant\Otp\Entity\Otp;
 use Phant\Otp\Entity\Request as EntityRequest;
 use Phant\Otp\Entity\Request\State;
 
