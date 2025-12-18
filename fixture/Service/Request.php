@@ -6,9 +6,8 @@ namespace Fixture\Service;
 
 use Phant\Cache\File as SimpleCache;
 use Phant\Otp\Service\Request as ServiceRequest;
-use Fixture\Port\Adapter\Sender as FixtureAdapter;
+use Fixture\Port\Gateway\Sender as FixtureGateway;
 use Fixture\Port\Repository\Request as FixtureRepository;
-use Fixture\Service\Request as FixtureServiceRequest;
 use Fixture\SslKey as FixtureSslKey;
 
 final class Request
@@ -19,7 +18,7 @@ final class Request
             new FixtureRepository(
                 new SimpleCache(realpath(__DIR__ . '/../..') . '/.storage/', 'request')
             ),
-            new FixtureAdapter(
+            new FixtureGateway(
                 new SimpleCache(realpath(__DIR__ . '/../..') . '/.storage/', 'sender')
             ),
             FixtureSslKey::get()

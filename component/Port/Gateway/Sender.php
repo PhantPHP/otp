@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phant\Otp\Port\Adapter;
+namespace Phant\Otp\Port\Gateway;
 
 use Phant\Otp\Entity\Request;
 

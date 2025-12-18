@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Fixture\Port\Adapter;
+namespace Fixture\Port\Gateway;
 
 use Psr\SimpleCache\CacheInterface;
-use Phant\Otp\Entity\Otp;
 use Phant\Otp\Entity\Request;
 
-final class Sender implements \Phant\Otp\Port\Adapter\Sender
+final class Sender implements \Phant\Otp\Port\Gateway\Sender
 {
     public function __construct(
         public CacheInterface $cache

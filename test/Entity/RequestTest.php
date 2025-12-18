@@ -6,12 +6,10 @@ namespace Test\Entity;
 
 use Phant\Error\NotAuthorized;
 use Phant\Error\NotCompliant;
-use Phant\Otp\Entity\Otp;
 use Phant\Otp\Entity\Request;
 use Phant\Otp\Entity\Request\Id;
 use Phant\Otp\Entity\Request\State;
 use Phant\Otp\Entity\Request\Token;
-use Fixture\Entity\Otp as FixtureOtp;
 use Fixture\Entity\Request as FixtureRequest;
 use Fixture\SslKey as FixtureSslKey;
 

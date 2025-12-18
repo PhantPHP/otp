@@ -11,7 +11,7 @@ use Phant\Otp\Entity\Otp;
 use Phant\Otp\Entity\Request as EntityRequest;
 use Phant\Otp\Entity\Request\State;
 use Phant\Otp\Entity\Request\Token;
-use Phant\Otp\Port\Adapter\Sender as AdapterSender;
+use Phant\Otp\Port\Gateway\Sender as GatewaySender;
 use Phant\Otp\Port\Repository\Request as RepositoryRequest;
 
 final readonly class Request
@@ -20,7 +20,7 @@ final readonly class Request
 
     public function __construct(
         protected RepositoryRequest $repositoryRequest,
-        protected AdapterSender $adapterSender,
+        protected GatewaySender $gatewaySender,
         protected SslKey $sslKey
     ) {
     }
@@ -40,7 +40,7 @@ final readonly class Request
             $request
         );
 
-        $this->adapterSender->send(
+        $this->gatewaySender->send(
             $request
         );
 

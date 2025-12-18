@@ -10,9 +10,7 @@ use Phant\Error\NotCompliant;
 use Phant\Otp\Entity\Request;
 use Phant\Otp\Entity\Request\Token;
 use Phant\Otp\Service\Request as ServiceRequest;
-use Fixture\Entity\Request as FixtureRequest;
 use Fixture\Sslkey as FixtureSslkey;
-use Fixture\Port\Adapter\Sender as FixturePortOtpSender;
 use Fixture\Service\Request as FixtureServiceRequest;
 
 final class RequestTest extends \PHPUnit\Framework\TestCase
