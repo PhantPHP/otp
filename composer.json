@@ -16,8 +16,8 @@
     "require-dev": {
         "phant/cache": "2.*",
         "friendsofphp/php-cs-fixer": "3.*",
-        "phpstan/phpstan": "1.*",
-        "phpunit/phpunit": "9.*"
+        "phpstan/phpstan": "2.*",
+        "phpunit/phpunit": "12.*"
     },
     "scripts": {
         "lint": "vendor/bin/php-cs-fixer fix ./ --rules=@PSR12",
